@@ -60,6 +60,8 @@ class Events extends Component  {
     console.log(id);
     if (!window.confirm('Are you sure you want to delete this event?'))
     {
+      return;
+    } else {
       let URL = 'https://evening-mesa-16164.herokuapp.com/api/delete';
 
       let response = await fetch(URL, {

@@ -7,14 +7,15 @@ class Schedule extends Component  {
   saveEvent = async(e) => {
     e.preventDefault();
 
+    let email = e.target.elements.email.value;
     let title = e.target.elements.title.value;
     let day = e.target.elements.day.value;
     let month = e.target.elements.month.value;
     let year = e.target.elements.year.value;
     let notes = e.target.elements.notes.value;
 
-    let URL = 'https://evening-mesa-16164.herokuapp.com/api/save';
-
+    let URL = 'http://127.0.0.1:5000/api/save';
+    console.log(email);
     //we add an object to accept header when we use header.
     let response = await fetch(URL, {
       "method": "POST",
@@ -25,6 +26,7 @@ class Schedule extends Component  {
       "month": month,
       "day": day,
       "notes": notes,
+      "email": email,
       }
     });
 
